@@ -65,15 +65,15 @@ export class AuthService {
             email: string;
             id: string;
             _token: string;
-            _tokenExipirationDate: string
+            _tokenExpirationDate: string
         } = JSON.parse(localStorage.getItem('recipeBookUser'));
         if (!userData) {
             return;
         }
-        const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExipirationDate));
+        const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
         if (loadedUser.token) { //getter checks for expiration
             this.user.next(loadedUser);
-            const expirationDuration = new Date(userData._tokenExipirationDate).getTime() - new Date().getTime()
+            const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime()
             this.autoLogout(expirationDuration);
         }
     }
