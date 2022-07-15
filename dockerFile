@@ -12,5 +12,5 @@ RUN npm ci && npm run build
 #stage 2
 
 FROM nginx:aplhine
-COPY --from=recipe-app-build /app/dist/my-first-app /usr/share/nginx/html
+COPY --from=recipe-app-build /app/dist/recipeBook /usr/share/nginx/html
 EXPOSE 80

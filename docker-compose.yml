@@ -2,6 +2,6 @@ version: '1'
 services:
   angular-docker:
     container_name: angular-docker-container
-    build: ./my-first-app
+    build: ./recipeBook
     ports:
       - '9000:80'
