@@ -2,7 +2,7 @@
 
 #stage 1
 
-FROM node:alphine AS recipe-app-build
+FROM node:16 AS recipe-app-build
 WORKDIR /app
 COPY . .
 RUN npm ci && npm run build
@@ -11,6 +11,6 @@ RUN npm ci && npm run build
 
 #stage 2
 
-FROM nginx:aplhine
+FROM nginx:1.15-alpine
 COPY --from=recipe-app-build /app/dist/recipeBook /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 3000
