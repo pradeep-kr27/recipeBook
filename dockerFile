@@ -13,4 +13,4 @@ RUN npm ci && npm run build
 
 FROM nginx:1.15-alpine
 COPY --from=recipe-app-build /app/dist/recipeBook /usr/share/nginx/html
-EXPOSE 3000
+EXPOSE 80
